@@ -1,0 +1,17 @@
+{
+  "title": "EREXIT 3D",
+  "subtitle": "Telegram Bot & Community Automation",
+  "description": "Bot de atención al cliente y automatización para una comunidad de impresión 3D en Telegram.",
+  "tags": ["Node.js", "JavaScript", "Telegram", "Heroku"],
+  "overview": "Sistema de automatización desarrollado para una comunidad de impresión 3D en Telegram. Incluyó un bot de atención al cliente, automatización de consultas, integración con servicios de pago y herramientas para la gestión de la comunidad.",
+  "impact": "+1.200 nuevos usuarios incorporados a la comunidad",
+  "features": [
+    "Telegram Bot API",
+    "Automatización de atención y consultas",
+    "Integración con Mercado Pago",
+    "Integración con Patreon",
+    "Gestión de información y reportes",
+    "Deployment y mantenimiento en producción"
+  ],
+  "stack": ["Node.js", "JavaScript", "Telegram Bot API", "REST APIs", "Git", "Heroku"]
+}

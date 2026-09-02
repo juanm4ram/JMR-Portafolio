@@ -1,0 +1,18 @@
+{
+  "title": "Afrikísima Pastry",
+  "subtitle": "E-commerce Storefront",
+  "description": "Storefront de la pastelería Afrikísima, con catálogo, carrito y pedidos por WhatsApp.",
+  "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  "overview": "Storefront de la pastelería Afrikísima. Agilicé el flujo de pedidos y la presentación de un negocio de pastelería.",
+  "impact": "Flujo de pedidos y presentación del negocio unificados en un solo sitio",
+  "features": [
+    "Catálogo por categorías con carrusel de productos",
+    "Selección de tamaños y carrito de pedido",
+    "Envío del pedido por WhatsApp",
+    "Diseño responsive y accesible",
+    "Deploy continuo en Netlify"
+  ],
+  "stack": ["Next.js 15 (App Router)", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
+  "previewUrl": "https://afrikisima.netlify.app/",
+  "hasVideo": true
+}

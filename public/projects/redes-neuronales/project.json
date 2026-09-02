@@ -1,0 +1,19 @@
+{
+  "title": "Redes Neuronales",
+  "subtitle": "Página web educativa",
+  "description": "Sitio interactivo que explica, desde cero, cómo funcionan las redes neuronales y los agentes.",
+  "tags": ["JavaScript", "HTML5", "CSS"],
+  "overview": "Página web educativa sobre la evolución de los agentes y las redes neuronales: explica desde la regresión lineal hasta el backpropagation, con visualizaciones y demos interactivas.",
+  "impact": "Material de estudio navegable, con demos ejecutables en el navegador",
+  "features": [
+    "Recorrido guiado por secciones",
+    "Visualizaciones y gráficos generados en canvas",
+    "Demos interactivas de regresión y perceptrón",
+    "Fórmulas renderizadas con MathJax",
+    "Versión en español y en inglés"
+  ],
+  "stack": ["JavaScript", "HTML5", "CSS", "Canvas", "MathJax", "GitHub Pages"],
+  "githubUrl": "https://github.com/juanm4ram/tp-pagina-web-analisis",
+  "previewUrl": "https://juanm4ram.github.io/tp-pagina-web-analisis/",
+  "hasVideo": true
+}
