@@ -24,6 +24,7 @@ A single-page site, bilingual (Spanish / English), with light and dark modes.
 - [Project structure](#project-structure)
 - [Adding or editing a project](#adding-or-editing-a-project)
 - [Translations](#translations)
+- [Contact details and QR](#contact-details-and-qr)
 - [Icons](#icons)
 - [Deployment](#deployment)
 - [Contact](#contact)
@@ -39,7 +40,7 @@ A single-page site, bilingual (Spanish / English), with light and dark modes.
 | 🌗 **Light and dark** | Follows the system preference, with a manual toggle. |
 | 🗂️ **Project sheets** | Every card opens a modal with context, impact, features and stack. |
 | 🎬 **Live preview** | Cards play a walkthrough of the real site on hover (or when centred on screen, on mobile). |
-| 📊 **GitHub activity** | Contribution calendar for the past year, sized to fit the space available. |
+| 🔗 **Direct contact** | CV, email, LinkedIn and GitHub in the hero, plus a QR code that opens the site on your phone. |
 | ✨ **Animation** | Smooth scrolling with Lenis, headings and parallax via GSAP ScrollTrigger, *liquid glass* cards. |
 | 📱 **Responsive** | Built for mobile, tablet and desktop. |
 
@@ -48,7 +49,7 @@ A single-page site, bilingual (Spanish / English), with light and dark modes.
 **Framework** — Next.js 16 (App Router) · React 19 · TypeScript 5
 **Styling** — Tailwind CSS v4 · local fonts (Panchang, Clash Grotesk, Expose)
 **Animation** — GSAP + ScrollTrigger · Framer Motion · Lenis
-**Other** — `react-activity-calendar` · `lucide-react` · brand icons via [Simple Icons](https://simpleicons.org/)
+**Other** — `lucide-react` · brand icons via [Simple Icons](https://simpleicons.org/) · QR generated with [segno](https://segno.readthedocs.io/)
 
 ## Screenshots
 
@@ -90,20 +91,20 @@ npm run lint     # ESLint
 
 ```
 app/
-  layout.tsx           metadata, fonts, animated background, providers
+  layout.tsx           metadata, fonts and providers
   page.tsx             composes the sections
   globals.css          base styles and font variables
   fonts.ts             local font loading
 
 sections/
-  Hero.tsx             intro, tech stack and GitHub activity
+  Hero.tsx             intro, tech stack and contact block
   Projects.tsx         project grid + detail modal
   tools.tsx            stack grouped by category
 
 components/
   projectCard.tsx      card with video preview
   projectDetail.tsx    modal with impact, features and stack
-  GitHubCommits.tsx    contribution calendar
+  ContactCard.tsx      site QR + CV, email, LinkedIn and GitHub buttons
   BottomNav.tsx        floating nav, language and theme
   LiquidGlassCard.tsx  glass-effect cards
   GlassSurface.tsx     glass surface used by the nav
@@ -115,13 +116,14 @@ components/
 lib/
   i18n.tsx             ES/EN dictionaries and language context
   projects.ts          project types and slug list
+  site.ts              contact details and site URL, in one place
   utils.ts             helpers
 
 public/
   projects/<slug>/     image.png · showcase.webm · project.json
   icons/               custom monochrome logos
   fonts/               woff2 font files
-  background-*.webm    animated background (light and dark)
+  qr-portfolio.svg     QR code pointing at the site URL
   avatar.jpg           profile photo
 ```
 
@@ -196,6 +198,22 @@ const { t } = useLang();
 
 The language is resolved in this order: whatever is stored in `localStorage` → the
 browser language (`navigator.languages`) → English as a last resort.
+
+## Contact details and QR
+
+Email, LinkedIn, GitHub, the CV and the site URL live in `lib/site.ts`. The hero and the
+footer both read from there, so they change in one place.
+
+The QR is `public/qr-portfolio.svg` and encodes `site.url`. **If the site URL changes it
+has to be regenerated**, for example with [segno](https://segno.readthedocs.io/):
+
+```bash
+pip install segno
+python -c "import segno; segno.make('https://YOUR-URL', error='q').save('public/qr-portfolio.svg', kind='svg', scale=10, border=3, dark='#000000', light='#ffffff', omitsize=True)"
+```
+
+It always sits on a white card, dark mode included: a QR needs high contrast for a phone
+to read it.
 
 ## Icons
 

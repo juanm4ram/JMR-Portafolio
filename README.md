@@ -24,6 +24,7 @@ Sitio de una sola página, bilingüe (español / inglés), con modo claro y oscu
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Agregar o editar un proyecto](#agregar-o-editar-un-proyecto)
 - [Traducciones](#traducciones)
+- [Datos de contacto y QR](#datos-de-contacto-y-qr)
 - [Iconos](#iconos)
 - [Despliegue](#despliegue)
 - [Contacto](#contacto)
@@ -39,7 +40,7 @@ Sitio de una sola página, bilingüe (español / inglés), con modo claro y oscu
 | 🌗 **Claro y oscuro** | Sigue la preferencia del sistema, con interruptor manual. |
 | 🗂️ **Fichas de proyecto** | Cada tarjeta abre un modal con contexto, impacto, funcionalidades y stack. |
 | 🎬 **Preview en vivo** | Las tarjetas reproducen un recorrido del sitio real al pasar el mouse (o al centrarse en pantalla, en móvil). |
-| 📊 **Actividad de GitHub** | Calendario de contribuciones del último año, que se adapta al ancho disponible. |
+| 🔗 **Contacto directo** | CV, email, LinkedIn y GitHub en el hero, más un código QR que abre el sitio en el teléfono. |
 | ✨ **Animaciones** | Scroll suave con Lenis, títulos y parallax con GSAP ScrollTrigger, tarjetas con efecto *liquid glass*. |
 | 📱 **Responsive** | Diseñado para móvil, tablet y escritorio. |
 
@@ -48,7 +49,7 @@ Sitio de una sola página, bilingüe (español / inglés), con modo claro y oscu
 **Framework** — Next.js 16 (App Router) · React 19 · TypeScript 5
 **Estilos** — Tailwind CSS v4 · fuentes locales (Panchang, Clash Grotesk, Expose)
 **Animación** — GSAP + ScrollTrigger · Framer Motion · Lenis
-**Otros** — `react-activity-calendar` · `lucide-react` · iconos de marca vía [Simple Icons](https://simpleicons.org/)
+**Otros** — `lucide-react` · iconos de marca vía [Simple Icons](https://simpleicons.org/) · QR generado con [segno](https://segno.readthedocs.io/)
 
 ## Capturas
 
@@ -90,20 +91,20 @@ npm run lint     # ESLint
 
 ```
 app/
-  layout.tsx           metadata, fuentes, fondo animado, providers
+  layout.tsx           metadata, fuentes y providers
   page.tsx             composición de las secciones
   globals.css          estilos base y variables de fuentes
   fonts.ts             carga de las fuentes locales
 
 sections/
-  Hero.tsx             presentación, tech stack y actividad de GitHub
+  Hero.tsx             presentación, tech stack y bloque de contacto
   Projects.tsx         grilla de proyectos + modal de detalle
   tools.tsx            stack agrupado por categoría
 
 components/
   projectCard.tsx      tarjeta con preview en video
   projectDetail.tsx    modal con impacto, funcionalidades y stack
-  GitHubCommits.tsx    calendario de contribuciones
+  ContactCard.tsx      QR del sitio + botones de CV, email, LinkedIn y GitHub
   BottomNav.tsx        navegación flotante, idioma y tema
   LiquidGlassCard.tsx  tarjetas con efecto de vidrio
   GlassSurface.tsx     superficie de vidrio de la navegación
@@ -115,13 +116,14 @@ components/
 lib/
   i18n.tsx             diccionarios ES/EN y contexto de idioma
   projects.ts          tipos de proyecto y lista de slugs
+  site.ts              datos de contacto y URL del sitio, en un solo lugar
   utils.ts             helpers
 
 public/
   projects/<slug>/     image.png · showcase.webm · project.json
   icons/               logos monocromos propios
   fonts/               fuentes en woff2
-  background-*.webm    fondo animado (claro y oscuro)
+  qr-portfolio.svg     código QR que apunta a la URL del sitio
   avatar.jpg           foto de perfil
 ```
 
@@ -196,6 +198,22 @@ const { t } = useLang();
 
 El idioma se resuelve en este orden: lo guardado en `localStorage` → el idioma del
 navegador (`navigator.languages`) → inglés como último recurso.
+
+## Datos de contacto y QR
+
+Email, LinkedIn, GitHub, el CV y la URL del sitio viven en `lib/site.ts`. El hero y el
+footer los leen de ahí, así que se cambian en un solo lugar.
+
+El QR es `public/qr-portfolio.svg` y codifica `site.url`. **Si la URL del sitio cambia,
+hay que regenerarlo**, por ejemplo con [segno](https://segno.readthedocs.io/):
+
+```bash
+pip install segno
+python -c "import segno; segno.make('https://TU-URL', error='q').save('public/qr-portfolio.svg', kind='svg', scale=10, border=3, dark='#000000', light='#ffffff', omitsize=True)"
+```
+
+Se dibuja siempre sobre una tarjeta blanca, también en modo oscuro: un QR necesita
+contraste alto para que el teléfono lo lea.
 
 ## Iconos
 
