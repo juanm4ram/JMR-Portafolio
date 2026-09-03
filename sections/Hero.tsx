@@ -20,11 +20,12 @@ const bio = {
     </>,
     <>
       Trabajo con <strong>Node.js</strong>, <strong>Java</strong>,{" "}
-      <strong>Python</strong> y <strong>SQL</strong>, integración de{" "}
-      <strong>APIs</strong>, bots de Telegram y automatización de procesos.
+      <strong>Python</strong> y <strong>SQL</strong>; <strong>APIs REST</strong>,{" "}
+      <strong>Model Context Protocol (MCP)</strong>, function calling,{" "}
+      <strong>RAG</strong> y bases de datos vectoriales.
     </>,
     <>
-      Estudio <strong>Inteligencia Artificial</strong> en la{" "}
+      Estudio <strong>Inteligencia Artificial</strong> en{" "}
       <strong>Universidad de Palermo</strong>.
     </>,
     <>
@@ -40,8 +41,9 @@ const bio = {
     </>,
     <>
       I work with <strong>Node.js</strong>, <strong>Java</strong>,{" "}
-      <strong>Python</strong> and <strong>SQL</strong>, <strong>API</strong>{" "}
-      integration, Telegram bots and process automation.
+      <strong>Python</strong> and <strong>SQL</strong>; <strong>REST APIs</strong>,{" "}
+      <strong>Model Context Protocol (MCP)</strong>, function calling,{" "}
+      <strong>RAG</strong> and vector databases.
     </>,
     <>
       I study <strong>Artificial Intelligence</strong> at{" "}
