@@ -80,7 +80,14 @@ export default function Projects() {
   }, []);
 
   const openProject = localized.find((p) => p.slug === openSlug) ?? null;
-  const chips = [t("projects.chip1"), t("projects.chip2"), t("projects.chip3")];
+  const chips = [
+    t("projects.chip1"),
+    t("projects.chip2"),
+    t("projects.chip3"),
+    t("projects.chip4"),
+    t("projects.chip5"),
+  ];
+  const rotations = ["rotate-3", "-rotate-2", "rotate-1", "-rotate-1", "rotate-2"];
 
   return (
     <section
@@ -101,9 +108,7 @@ export default function Projects() {
                 {chips.map((item, i) => (
                   <span key={item}>
                     <span
-                      className={`outline rounded-full m-2 inline-block leading-none px-4 py-3 transition-all duration-200 ease-in-out hover:rotate-0 ${
-                        i === 0 ? "rotate-3" : i === 1 ? "-rotate-2" : "rotate-1"
-                      }`}
+                      className={`outline rounded-full m-2 inline-block leading-none px-4 py-3 transition-all duration-200 ease-in-out hover:rotate-0 ${rotations[i]}`}
                     >
                       {item}
                     </span>
