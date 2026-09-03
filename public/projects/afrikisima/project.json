@@ -1,18 +1,33 @@
 {
   "title": "Afrikísima Pastry",
-  "subtitle": "E-commerce Storefront",
-  "description": "Storefront de la pastelería Afrikísima, con catálogo, carrito y pedidos por WhatsApp.",
   "tags": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-  "overview": "Storefront de la pastelería Afrikísima. Agilicé el flujo de pedidos y la presentación de un negocio de pastelería.",
-  "impact": "Flujo de pedidos y presentación del negocio unificados en un solo sitio",
-  "features": [
-    "Catálogo por categorías con carrusel de productos",
-    "Selección de tamaños y carrito de pedido",
-    "Envío del pedido por WhatsApp",
-    "Diseño responsive y accesible",
-    "Deploy continuo en Netlify"
-  ],
   "stack": ["Next.js 15 (App Router)", "React 19", "TypeScript", "Tailwind CSS v4", "shadcn/ui"],
   "previewUrl": "https://afrikisima.netlify.app/",
-  "hasVideo": true
+  "hasVideo": true,
+  "es": {
+    "subtitle": "E-commerce Storefront",
+    "description": "Storefront de la pastelería Afrikísima, con catálogo, carrito y pedidos por WhatsApp.",
+    "overview": "Storefront de la pastelería Afrikísima. Agilicé el flujo de pedidos y la presentación de un negocio de pastelería.",
+    "impact": "Flujo de pedidos y presentación del negocio unificados en un solo sitio",
+    "features": [
+      "Catálogo por categorías con carrusel de productos",
+      "Selección de tamaños y carrito de pedido",
+      "Envío del pedido por WhatsApp",
+      "Diseño responsive y accesible",
+      "Deploy continuo en Netlify"
+    ]
+  },
+  "en": {
+    "subtitle": "E-commerce Storefront",
+    "description": "Storefront for the Afrikísima bakery, with a catalog, cart and WhatsApp ordering.",
+    "overview": "Storefront for the Afrikísima bakery. I streamlined the ordering flow and how the business presents itself online.",
+    "impact": "Ordering flow and storefront unified into a single site",
+    "features": [
+      "Category catalog with a product carousel",
+      "Size selection and order cart",
+      "Order handoff over WhatsApp",
+      "Responsive, accessible design",
+      "Continuous deployment on Netlify"
+    ]
+  }
 }

@@ -1,19 +1,34 @@
 {
   "title": "Redes Neuronales",
-  "subtitle": "Página web educativa",
-  "description": "Sitio interactivo que explica, desde cero, cómo funcionan las redes neuronales y los agentes.",
   "tags": ["JavaScript", "HTML5", "CSS"],
-  "overview": "Página web educativa sobre la evolución de los agentes y las redes neuronales: explica desde la regresión lineal hasta el backpropagation, con visualizaciones y demos interactivas.",
-  "impact": "Material de estudio navegable, con demos ejecutables en el navegador",
-  "features": [
-    "Recorrido guiado por secciones",
-    "Visualizaciones y gráficos generados en canvas",
-    "Demos interactivas de regresión y perceptrón",
-    "Fórmulas renderizadas con MathJax",
-    "Versión en español y en inglés"
-  ],
   "stack": ["JavaScript", "HTML5", "CSS", "Canvas", "MathJax", "GitHub Pages"],
   "githubUrl": "https://github.com/juanm4ram/tp-pagina-web-analisis",
   "previewUrl": "https://juanm4ram.github.io/tp-pagina-web-analisis/",
-  "hasVideo": true
+  "hasVideo": true,
+  "es": {
+    "subtitle": "Página web educativa",
+    "description": "Sitio interactivo que explica, desde cero, cómo funcionan las redes neuronales y los agentes.",
+    "overview": "Página web educativa sobre la evolución de los agentes y las redes neuronales: explica desde la regresión lineal hasta el backpropagation, con visualizaciones y demos interactivas.",
+    "impact": "Material de estudio navegable, con demos ejecutables en el navegador",
+    "features": [
+      "Recorrido guiado por secciones",
+      "Visualizaciones y gráficos generados en canvas",
+      "Demos interactivas de regresión y perceptrón",
+      "Fórmulas renderizadas con MathJax",
+      "Versión en español y en inglés"
+    ]
+  },
+  "en": {
+    "subtitle": "Educational website",
+    "description": "An interactive site that explains, from scratch, how neural networks and agents work.",
+    "overview": "Educational website on the evolution of agents and neural networks: it walks from linear regression through to backpropagation, with visualisations and interactive demos.",
+    "impact": "A browsable study resource with demos that run in the browser",
+    "features": [
+      "Guided walkthrough, section by section",
+      "Canvas-rendered visualisations and charts",
+      "Interactive regression and perceptron demos",
+      "Formulas typeset with MathJax",
+      "Available in Spanish and English"
+    ]
+  }
 }
