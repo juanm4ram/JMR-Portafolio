@@ -3,27 +3,15 @@
 import { useState, useEffect, useCallback } from "react";
 import { User, FolderKanban, Wrench, Mail, Moon, Sun } from "lucide-react";
 import GlassSurface from "@/components/GlassSurface";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/tooltip";
+import { useLang } from "@/lib/i18n";
 
 const navItems = [
-  { label: "About", icon: "about", id: "about" },
-  { label: "Projects", icon: "projects", id: "projects" },
-  { label: "Tools", icon: "tools", id: "tools" },
-  { label: "Contact", icon: "contact", id: "contact" },
-];
-
-const icons: Record<string, React.ReactNode> = {
-  about: <User size={24} />,
-  projects: <FolderKanban size={24} />,
-  tools: <Wrench size={24} />,
-  contact: <Mail size={24} />,
-  dark: <Moon size={24} />,
-  light: <Sun size={24} />,
-};
+  { id: "about", labelKey: "nav.about", icon: <User size={24} /> },
+  { id: "projects", labelKey: "nav.projects", icon: <FolderKanban size={24} /> },
+  { id: "tools", labelKey: "nav.tools", icon: <Wrench size={24} /> },
+  { id: "contact", labelKey: "nav.contact", icon: <Mail size={24} /> },
+] as const;
 
 function scrollToSection(id: string) {
   const el = document.getElementById(id);
@@ -33,24 +21,22 @@ function scrollToSection(id: string) {
 export function BottomNav() {
   const [activeItem, setActiveItem] = useState("about");
   const [isDark, setIsDark] = useState(false);
+  const { lang, toggle, t } = useLang();
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   useEffect(() => {
-    const sectionIds = navItems.map((i) => i.label.toLowerCase());
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
+    const sections = navItems
+      .map((i) => document.getElementById(i.id))
       .filter(Boolean) as HTMLElement[];
 
     const ratios = new Map<string, number>();
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          ratios.set(e.target.id, e.intersectionRatio);
-        }
+        for (const e of entries) ratios.set(e.target.id, e.intersectionRatio);
         let bestId = "";
         let bestRatio = 0;
         for (const [id, ratio] of ratios) {
@@ -74,6 +60,9 @@ export function BottomNav() {
     document.documentElement.classList.toggle("dark", next);
   }, [isDark]);
 
+  const iconButton =
+    "rounded-lg p-1.5 max-lg:p-2 text-neutral-500 transition-colors hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200";
+
   return (
     <nav className="flex justify-center overflow-hidden max-w-full">
       <div className="overflow-hidden">
@@ -84,47 +73,60 @@ export function BottomNav() {
           backgroundOpacity={0}
           saturation={1.8}
           className="px-3 py-2 max-sm:px-1.5 max-sm:py-1 max-lg:px-4 max-lg:py-2.5 max-w-full"
-          style={{ minHeight: '44px' }}
+          style={{ minHeight: "44px" }}
         >
           <div className="flex items-center gap-2 max-sm:gap-1 max-lg:gap-3">
-            <>
-              {navItems.map(({ label, icon }) => (
-                <Tooltip key={label}>
-                  <TooltipTrigger asChild>
-                    <button
-                      onClick={() => {
-                        setActiveItem(label.toLowerCase());
-                        scrollToSection(label.toLowerCase());
-                      }}
-                      className={`rounded-lg p-1.5 max-lg:p-2 transition-colors ${
-                        activeItem === label.toLowerCase()
-                          ? "text-black dark:text-white"
-                          : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-                      }`}
-                    >
-                      {icons[icon as keyof typeof icons]}
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>{label}</TooltipContent>
-                </Tooltip>
-              ))}
-              <div className="mx-1 h-4 w-px bg-neutral-300/50 dark:bg-neutral-600/50 max-lg:h-5"></div>
-
-              <Tooltip>
+            {navItems.map(({ id, labelKey, icon }) => (
+              <Tooltip key={id}>
                 <TooltipTrigger asChild>
                   <button
-                    onClick={toggleDark}
-                    className="rounded-lg p-1.5 max-lg:p-2 text-neutral-500 transition-colors hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-                    aria-label="Toggle dark mode"
+                    onClick={() => {
+                      setActiveItem(id);
+                      scrollToSection(id);
+                    }}
+                    aria-label={t(labelKey)}
+                    className={`rounded-lg p-1.5 max-lg:p-2 transition-colors ${
+                      activeItem === id
+                        ? "text-black dark:text-white"
+                        : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                    }`}
                   >
-                    {isDark ? icons.light : icons.dark}
+                    {icon}
                   </button>
                 </TooltipTrigger>
-                <TooltipContent>
-                  {isDark ? "Light mode" : "Dark mode"}
-                </TooltipContent>
+                <TooltipContent>{t(labelKey)}</TooltipContent>
               </Tooltip>
-            </>
+            ))}
+
+            <div className="mx-1 h-4 w-px bg-neutral-300/50 dark:bg-neutral-600/50 max-lg:h-5" />
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={toggle}
+                  className={`${iconButton} font-clash-grotesk-semibold min-w-[36px] text-sm tracking-wide`}
+                  aria-label={t("nav.language")}
+                >
+                  {lang === "es" ? "ES" : "EN"}
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>{t("nav.language")}</TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={toggleDark}
+                  className={iconButton}
+                  aria-label={isDark ? t("nav.lightMode") : t("nav.darkMode")}
+                >
+                  {isDark ? <Sun size={24} /> : <Moon size={24} />}
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                {isDark ? t("nav.lightMode") : t("nav.darkMode")}
+              </TooltipContent>
+            </Tooltip>
           </div>
         </GlassSurface>
       </div>

@@ -17,6 +17,7 @@ import Footer from "@/components/footer";
 import { TooltipProvider } from "@/components/tooltip";
 import { InlineScript } from "@/components/inline-script";
 import Preloader from "@/components/preloader";
+import { LanguageProvider } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -66,17 +67,19 @@ export default function RootLayout({
         >
           <source src="/background-light.webm" type="video/webm" />
         </video>
-        <LenisProvider>
-          <div className="flex-1 px-[3%] max-sm:px-0 max-lg:px-0">
-            {children}
+        <LanguageProvider>
+          <LenisProvider>
+            <div className="flex-1 px-[3%] max-sm:px-0 max-lg:px-0">
+              {children}
+            </div>
+            <Footer />
+          </LenisProvider>
+          <div className="fixed inset-x-0 bottom-6 z-[1200] flex items-center justify-center gap-4 px-4 max-sm:bottom-2 max-sm:gap-2 max-lg:bottom-2 max-lg:gap-3">
+            <TooltipProvider delayDuration={0}>
+              <BottomNav />
+            </TooltipProvider>
           </div>
-          <Footer />
-        </LenisProvider>
-        <div className="fixed inset-x-0 bottom-6 z-[1200] flex items-center justify-center gap-4 px-4 max-sm:bottom-2 max-sm:gap-2 max-lg:bottom-2 max-lg:gap-3">
-          <TooltipProvider delayDuration={0}>
-            <BottomNav />
-          </TooltipProvider>
-        </div>
+        </LanguageProvider>
       </body>
     </html>
   );
