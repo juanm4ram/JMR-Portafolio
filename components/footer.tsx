@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LiquidGlassCard from "@/components/LiquidGlassCard";
+import { useLang } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -120,37 +121,17 @@ function FooterLink({
   );
 }
 
-function FooterCopyButton({
-  icon,
-  title,
-  value,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  value: string;
-}) {
+export default function Footer() {
+  const builtRef = useRef<HTMLSpanElement>(null);
   const [copied, setCopied] = useState(false);
+  const { t } = useLang();
 
   const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(value).then(() => {
+    navigator.clipboard.writeText(EMAIL).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
-  }, [value]);
-
-  return (
-    <button onClick={handleCopy} className={pillClass}>
-      {icon}
-      <span className="font-clash-grotesk-semibold">
-        {copied ? "¡Copiado!" : title}
-      </span>
-      <ArrowIcon />
-    </button>
-  );
-}
-
-export default function Footer() {
-  const builtRef = useRef<HTMLSpanElement>(null);
+  }, []);
 
   useGSAP(() => {
     if (builtRef.current) {
@@ -184,23 +165,22 @@ export default function Footer() {
       >
         <div className="text-center">
           <p className="font-clash-grotesk-semibold tracking-[0.4em] uppercase text-black/80 dark:text-zinc-300 text-sm">
-            Construyamos algo
+            {t("footer.kicker")}
           </p>
 
           <h2 className="mt-3 text-[8rem] leading-none font-panchang-bold uppercase text-black dark:text-white max-sm:text-4xl max-lg:text-4xl">
-            Juntos
+            {t("footer.headline")}
           </h2>
 
           <p className="font-clash-grotesk-regular mx-auto mt-8 max-w-2xl text-black/70 dark:text-zinc-300 text-lg leading-9 max-sm:text-base max-sm:leading-7 max-lg:text-base max-lg:leading-7">
-            Estoy abierto a nuevas oportunidades, proyectos interesantes y
-            colaboraciones. Escribime y lo charlamos.
+            {t("footer.blurb")}
           </p>
         </div>
 
         <div className="mt-14 flex flex-wrap justify-center gap-6 max-sm:flex-col max-sm:items-stretch max-sm:gap-3 max-lg:flex-col max-lg:items-stretch max-lg:gap-3">
           <FooterLink
             icon={<MailIcon />}
-            title="Escribime"
+            title={t("footer.email")}
             href={`mailto:${EMAIL}`}
           />
           <FooterLink
@@ -213,11 +193,13 @@ export default function Footer() {
             title="LinkedIn"
             href="https://www.linkedin.com/in/juanmramos3/"
           />
-          <FooterCopyButton
-            icon={<CopyIcon />}
-            title="Copiar email"
-            value={EMAIL}
-          />
+          <button onClick={handleCopy} className={pillClass}>
+            <CopyIcon />
+            <span className="font-clash-grotesk-semibold">
+              {copied ? t("footer.copied") : t("footer.copyEmail")}
+            </span>
+            <ArrowIcon />
+          </button>
         </div>
 
         <div className="mt-20 flex w-full items-center gap-6">
@@ -229,12 +211,12 @@ export default function Footer() {
         </div>
 
         <p className="font-clash-grotesk-regular mt-8 text-center text-black/70 dark:text-zinc-400 max-sm:text-sm max-lg:text-sm">
-          Gracias por llegar hasta acá.
+          {t("footer.thanks")}
         </p>
 
         <div className="mt-20 flex w-full justify-between text-sm text-black/60 dark:text-zinc-500 font-clash-grotesk-regular max-sm:mt-12 max-sm:flex-col max-sm:items-center max-sm:gap-1 max-lg:mt-12 max-lg:flex-col max-lg:items-center max-lg:gap-1">
           <span>&copy; 2026 Juan Manuel Ramos</span>
-          <span ref={builtRef}>Hecho con Next.js &amp; GSAP</span>
+          <span ref={builtRef}>{t("footer.built")}</span>
         </div>
       </LiquidGlassCard>
     </section>
