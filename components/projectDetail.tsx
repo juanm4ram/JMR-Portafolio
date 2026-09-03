@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { ArrowUpRight, X } from "lucide-react";
-import { iconSlugs, type Project } from "@/lib/projects";
+import { iconSlugs, type LocalizedProject } from "@/lib/projects";
+import { useLang } from "@/lib/i18n";
 
 function Section({
   label,
@@ -25,9 +26,11 @@ export default function ProjectDetail({
   project,
   onClose,
 }: {
-  project: Project | null;
+  project: LocalizedProject | null;
   onClose: () => void;
 }) {
+  const { t } = useLang();
+
   useEffect(() => {
     if (!project) return;
     const onKey = (e: KeyboardEvent) => {
@@ -59,7 +62,7 @@ export default function ProjectDetail({
       >
         <button
           onClick={onClose}
-          aria-label="Cerrar"
+          aria-label={t("detail.close")}
           className="absolute right-6 top-6 rounded-full border border-black/10 p-2 text-neutral-500 transition-colors hover:text-black dark:border-white/15 dark:hover:text-white max-sm:right-4 max-sm:top-4"
         >
           <X size={18} />
@@ -87,7 +90,7 @@ export default function ProjectDetail({
         </p>
 
         {project.impact && (
-          <Section label="Impact">
+          <Section label={t("detail.impact")}>
             <p className="font-clash-grotesk-semibold text-xl max-sm:text-lg">
               {project.impact}
             </p>
@@ -95,7 +98,7 @@ export default function ProjectDetail({
         )}
 
         {project.features && project.features.length > 0 && (
-          <Section label="Features">
+          <Section label={t("detail.features")}>
             <ul className="font-clash-grotesk-regular space-y-2 text-neutral-700 dark:text-neutral-300">
               {project.features.map((f) => (
                 <li key={f} className="flex gap-3">
@@ -108,7 +111,7 @@ export default function ProjectDetail({
         )}
 
         {project.stack && project.stack.length > 0 && (
-          <Section label="Stack">
+          <Section label={t("detail.stack")}>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((s) => {
                 const icon = iconSlugs[s];
@@ -123,7 +126,7 @@ export default function ProjectDetail({
                         alt=""
                         aria-hidden
                         loading="lazy"
-                        className="size-4 dark:invert-0"
+                        className="size-4"
                       />
                     )}
                     {s}
@@ -143,7 +146,7 @@ export default function ProjectDetail({
                 rel="noopener noreferrer"
                 className="font-clash-grotesk-semibold group flex items-center gap-2 rounded-full bg-black px-6 py-3 text-white transition-transform hover:-translate-y-0.5 dark:bg-white dark:text-black"
               >
-                Ver el sitio
+                {t("detail.visit")}
                 <ArrowUpRight
                   size={16}
                   className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -157,7 +160,7 @@ export default function ProjectDetail({
                 rel="noopener noreferrer"
                 className="font-clash-grotesk-semibold group flex items-center gap-2 rounded-full border border-black/15 px-6 py-3 transition-transform hover:-translate-y-0.5 dark:border-white/20"
               >
-                Código
+                {t("detail.code")}
                 <ArrowUpRight
                   size={16}
                   className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
