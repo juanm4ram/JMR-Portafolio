@@ -1,94 +1,123 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, type ComponentType } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  Braces,
+  Database,
+  RefreshCw,
+  Rocket,
+  Server,
+  Sparkles,
+  Table2,
+  Terminal,
+  Webhook,
+  type LucideProps,
+} from "lucide-react";
 import LiquidGlassCard from "@/components/LiquidGlassCard";
+import { useLang } from "@/lib/i18n";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type TKey = Parameters<ReturnType<typeof useLang>["t"]>[0];
+
 interface Tool {
-  name: string;
+  /** Texto literal (nombres propios que no se traducen). */
+  name?: string;
+  /** Clave del diccionario, para lo que sí se traduce. */
+  key?: TKey;
+  /** Slug de simple-icons, servido desde su CDN. */
   slug?: string;
+  /** PNG monocromo propio en /icons (para marcas que simple-icons no tiene). */
+  img?: string;
+  /** Icono de lucide, para conceptos que no son una marca. */
+  Icon?: ComponentType<LucideProps>;
 }
 
 interface Bucket {
-  label: string;
+  key: TKey;
   tools: Tool[];
 }
 
 const buckets: Bucket[] = [
   {
-    label: "Lenguajes",
+    key: "tools.languages",
     tools: [
       { name: "Java", slug: "openjdk" },
       { name: "Python", slug: "python" },
       { name: "JavaScript", slug: "javascript" },
-      { name: "TypeScript", slug: "typescript" },
-      { name: "SQL", slug: "postgresql" },
+      { name: "SQL", Icon: Database },
       { name: "C", slug: "c" },
       { name: "C++", slug: "cplusplus" },
     ],
   },
   {
-    label: "Backend",
+    key: "tools.backend",
     tools: [
       { name: "Node.js", slug: "nodedotjs" },
-      { name: "Integración de APIs", slug: "openapiinitiative" },
-      { name: "Bots de Telegram", slug: "telegram" },
-      { name: "Automatización de procesos", slug: "zapier" },
+      { key: "tool.restApis", Icon: Braces },
+      { key: "tool.webhooks", Icon: Webhook },
+      { key: "tool.async", Icon: RefreshCw },
+      { key: "tool.dbConnection", Icon: Database },
     ],
   },
   {
-    label: "Datos",
+    key: "tools.data",
     tools: [
-      { name: "SQL Server" },
+      { name: "SQL Server", Icon: Database },
       { name: "Firestore", slug: "firebase" },
-      { name: "Excel" },
-      { name: "Google Sheets", slug: "googlesheets" },
+      { name: "Microsoft Excel", Icon: Table2 },
     ],
   },
   {
-    label: "Versionado",
+    key: "tools.infra",
+    tools: [
+      { key: "tool.vms", Icon: Server },
+      { name: "Docker", slug: "docker" },
+      { name: "Linux", slug: "linux" },
+      { key: "tool.deploy", Icon: Rocket },
+      { name: "Google Cloud", slug: "googlecloud" },
+      { name: "Heroku", img: "/icons/heroku.png" },
+      { key: "tool.servers", Icon: Server },
+    ],
+  },
+  {
+    key: "tools.tooling",
     tools: [
       { name: "Git", slug: "git" },
       { name: "GitHub", slug: "github" },
-    ],
-  },
-  {
-    label: "IA y agentes",
-    tools: [
-      { name: "OpenAI / Codex" },
-      { name: "Claude Code", slug: "claude" },
-      { name: "Google Gemini", slug: "googlegemini" },
-      { name: "LLMs y prompting" },
-    ],
-  },
-  {
-    label: "Sistemas y deploy",
-    tools: [
-      { name: "Linux CLI", slug: "linux" },
-      { name: "VirtualBox", slug: "virtualbox" },
-      { name: "Heroku" },
-      { name: "Google Cloud", slug: "googlecloud" },
-    ],
-  },
-  {
-    label: "Entornos",
-    tools: [
+      { name: "Postman", slug: "postman" },
       { name: "IntelliJ IDEA", slug: "intellijidea" },
       { name: "Cursor", slug: "cursor" },
-      { name: "Google Workspace" },
-      { name: "Microsoft Office" },
+      { name: "Visual Studio Code", slug: "vscodium" },
+      { name: "Google Workspace", img: "/icons/workspace.png" },
+      { name: "Microsoft Office", img: "/icons/office.png" },
+    ],
+  },
+  {
+    key: "tools.ai",
+    tools: [
+      { name: "Claude Code / Cowork", slug: "claude" },
+      { name: "Codex", Icon: Terminal },
+      { name: "OpenCode", slug: "opencode" },
+      { name: "GitHub Copilot", slug: "githubcopilot" },
+      { name: "LangGraph", slug: "langgraph" },
+      { name: "Model Context Protocol", slug: "modelcontextprotocol" },
+      { key: "tool.functionCalling", Icon: Braces },
+      { name: "RAG", Icon: Sparkles },
+      { key: "tool.vectorDbs", Icon: Database },
     ],
   },
 ];
 
 function ToolPill({ tool, isDark }: { tool: Tool; isDark: boolean }) {
   const [iconFailed, setIconFailed] = useState(false);
+  const { t } = useLang();
+  const label = tool.name ?? (tool.key ? t(tool.key) : "");
   const iconColor = isDark ? "ffffff" : "000000";
-  const showIcon = Boolean(tool.slug) && !iconFailed;
+  const Icon = tool.Icon;
 
   return (
     <span
@@ -104,7 +133,18 @@ function ToolPill({ tool, isDark }: { tool: Tool; isDark: boolean }) {
           : "0 0 20px rgba(0,0,0,0.04)",
       }}
     >
-      {showIcon ? (
+      {Icon ? (
+        <Icon aria-hidden className="size-5 max-sm:size-4" strokeWidth={1.75} />
+      ) : tool.img ? (
+        <img
+          src={tool.img}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="size-5 max-sm:size-4"
+          style={{ filter: isDark ? "invert(1)" : "none" }}
+        />
+      ) : tool.slug && !iconFailed ? (
         <img
           src={`https://cdn.simpleicons.org/${tool.slug}/${iconColor}`}
           alt=""
@@ -118,10 +158,10 @@ function ToolPill({ tool, isDark }: { tool: Tool; isDark: boolean }) {
           aria-hidden
           className="flex size-5 items-center justify-center rounded-full border border-current text-[10px] font-bold max-sm:size-4 max-sm:text-[8px]"
         >
-          {tool.name[0]}
+          {label[0]}
         </span>
       )}
-      {tool.name}
+      {label}
     </span>
   );
 }
@@ -130,6 +170,7 @@ export default function Tools() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const [isDark, setIsDark] = useState(false);
+  const { t } = useLang();
 
   useEffect(() => {
     const check = () =>
@@ -193,20 +234,20 @@ export default function Tools() {
       className="min-h-dvh px-5 py-3 max-sm:pt-[15vh] max-lg:pt-[15vh]"
     >
       <h1 ref={titleRef} className="font-panchang-bold text-center text-5xl">
-        Tools
+        {t("tools.title")}
       </h1>
 
       <LiquidGlassCard className="mt-4 pb-14">
         <div className="pt-14 pb-10 px-10 max-sm:pt-8 max-sm:pb-6 max-sm:px-4 max-lg:pt-8 max-lg:pb-6 max-lg:px-4">
           <p className="font-clash-grotesk-regular text-2xl text-neutral-700 dark:text-neutral-300 pl-6 max-sm:text-base max-sm:pl-2 max-lg:text-base max-lg:pl-2">
-            todo lo que uso para construir
+            {t("tools.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 px-10 pb-5 max-sm:grid-cols-1 max-sm:gap-4 max-sm:px-4 max-lg:grid-cols-1 max-lg:px-4">
+        <div className="grid grid-cols-2 items-start gap-6 px-10 pb-5 max-sm:grid-cols-1 max-sm:gap-4 max-sm:px-4 max-lg:grid-cols-1 max-lg:px-4">
           {buckets.map((bucket, i) => (
             <div
-              key={bucket.label}
+              key={bucket.key}
               className={`rounded-[42px] p-8 max-sm:rounded-[32px] max-sm:p-6 ${
                 i === buckets.length - 1 && buckets.length % 2 === 1
                   ? "col-span-2 max-sm:col-span-1 max-lg:col-span-1"
@@ -218,11 +259,15 @@ export default function Tools() {
               }}
             >
               <h3 className="font-panchang-bold text-3xl text-black dark:text-white max-sm:text-2xl">
-                {bucket.label}
+                {t(bucket.key)}
               </h3>
               <div className="mt-6 flex flex-wrap gap-2 max-sm:mt-4">
                 {bucket.tools.map((tool) => (
-                  <ToolPill key={tool.name} tool={tool} isDark={isDark} />
+                  <ToolPill
+                    key={tool.name ?? tool.key}
+                    tool={tool}
+                    isDark={isDark}
+                  />
                 ))}
               </div>
             </div>
