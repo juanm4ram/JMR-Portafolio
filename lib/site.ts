@@ -9,5 +9,5 @@ export const site = {
   /** PDF del CV en Google Drive. Si se reemplaza el archivo, cambia el id. */
   cv: "https://drive.google.com/file/d/1CtaZGKYT5urDZPJ9UsWab7y6e7YM51XO/view?usp=drive_link",
   /** URL que codifica public/qr-portfolio.svg. Si cambia, hay que regenerar el SVG. */
-  url: "https://juan-manuel-ramos.vercel.app",
+  url: "https://jmr-portafolio.vercel.app",
 } as const;
