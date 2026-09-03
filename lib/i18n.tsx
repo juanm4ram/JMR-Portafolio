@@ -29,9 +29,10 @@ const es = {
   "nav.language": "Cambiar a inglés",
 
   "hero.techStack": "Tech Stack",
-  "hero.githubActivity": "Actividad en GitHub",
-  "hero.githubFallback": "Mirá mi actividad en github.com/{user}",
-  "hero.githubCount": "{count} contribuciones en el último año",
+  "hero.contact": "Contacto",
+  "contact.cv": "Ver mi CV",
+  "contact.email": "Escribime",
+  "contact.qrAlt": "Código QR del portafolio: escaneá para abrirlo en tu teléfono",
 
   "projects.title": "Projects",
   "projects.iWorkOn": "trabajo en",
@@ -93,9 +94,10 @@ const en: Record<Key, string> = {
   "nav.language": "Switch to Spanish",
 
   "hero.techStack": "Tech Stack",
-  "hero.githubActivity": "GitHub Activity",
-  "hero.githubFallback": "See my activity at github.com/{user}",
-  "hero.githubCount": "{count} contributions in the last year",
+  "hero.contact": "Contact",
+  "contact.cv": "View my CV",
+  "contact.email": "Email me",
+  "contact.qrAlt": "Portfolio QR code: scan it to open the site on your phone",
 
   "projects.title": "Projects",
   "projects.iWorkOn": "i work on",

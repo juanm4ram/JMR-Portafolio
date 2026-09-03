@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import Avatar from "@/components/Avatar";
 import { LogoCarousel } from "@/components/logo-carousel";
-import { GitHubCommits } from "@/components/GitHubCommits";
+import ContactCard from "@/components/ContactCard";
 import { techLogos } from "@/components/tech-icons";
 import { useLang } from "@/lib/i18n";
 
@@ -155,11 +155,11 @@ export default function Hero() {
             </span>
             <LogoCarousel columnCount={3} logos={techLogos} />
           </div>
-          <div className="github-cell flex w-full min-w-0 flex-col gap-3">
+          <div className="contact-cell flex w-full min-w-0 flex-col gap-3 max-sm:items-center">
             <span className="text-xs font-clash-grotesk-semibold uppercase tracking-widest text-neutral-500">
-              {t("hero.githubActivity")}
+              {t("hero.contact")}
             </span>
-            <GitHubCommits />
+            <ContactCard />
           </div>
         </div>
       </LiquidGlassCard>
