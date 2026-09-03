@@ -10,26 +10,55 @@ import Avatar from "@/components/Avatar";
 import { LogoCarousel } from "@/components/logo-carousel";
 import { GitHubCommits } from "@/components/GitHubCommits";
 import { techLogos } from "@/components/tech-icons";
+import { useLang } from "@/lib/i18n";
 
-const lines = [
-  <>
-    Hola! me llamo <strong>Juan Manuel</strong> — soy{" "}
-    <strong>software developer</strong> orientado a <strong>backend</strong>.
-  </>,
-  <>
-    Trabajo con <strong>Node.js</strong>, integración de <strong>APIs</strong>,
-    bots de Telegram y automatización de procesos.
-  </>,
-  <>
-    También me muevo con <strong>Java</strong>, <strong>Python</strong> y{" "}
-    <strong>SQL</strong>, y uso agentes de <strong>IA</strong> en el día a día.
-  </>,
-];
+const bio = {
+  es: [
+    <>
+      Hola! me llamo <strong>Juan Manuel</strong> — soy{" "}
+      <strong>software developer</strong> orientado a <strong>backend</strong>.
+    </>,
+    <>
+      Trabajo con <strong>Node.js</strong>, <strong>Java</strong>,{" "}
+      <strong>Python</strong> y <strong>SQL</strong>, integración de{" "}
+      <strong>APIs</strong>, bots de Telegram y automatización de procesos.
+    </>,
+    <>
+      Estudio <strong>Inteligencia Artificial</strong> en la{" "}
+      <strong>Universidad de Palermo</strong>.
+    </>,
+    <>
+      Me apasiona estudiar el funcionamiento de los algoritmos de IA, cómo se
+      construyen los agentes y cómo desarrollar software de calidad mediante
+      ambos.
+    </>,
+  ],
+  en: [
+    <>
+      Hi! I&apos;m <strong>Juan Manuel</strong> — a{" "}
+      <strong>software developer</strong> focused on <strong>backend</strong>.
+    </>,
+    <>
+      I work with <strong>Node.js</strong>, <strong>Java</strong>,{" "}
+      <strong>Python</strong> and <strong>SQL</strong>, <strong>API</strong>{" "}
+      integration, Telegram bots and process automation.
+    </>,
+    <>
+      I study <strong>Artificial Intelligence</strong> at{" "}
+      <strong>Universidad de Palermo</strong>.
+    </>,
+    <>
+      I&apos;m fascinated by how AI algorithms work, how agents are built, and
+      how to write quality software with both.
+    </>,
+  ],
+};
 
 const words = ["JUAN", "MANUEL", "RAMOS"];
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { lang, t } = useLang();
 
   useGSAP(() => {
     const ctx = containerRef.current;
@@ -94,9 +123,13 @@ export default function Hero() {
       <div className="hero-title-wrap flex justify-center mb-0">
         <h1 className="mx-auto text-[6.2vw] font-panchang-extrabold text-center leading-[0.95] max-sm:w-full max-sm:text-[13vw] max-sm:leading-[0.9] max-lg:w-full max-lg:text-[12vw] max-lg:leading-[0.9]">
           {words.map((word, i) => (
-            <span key={i} className="hero-word inline-block">
+            <span
+              key={i}
+              className={`hero-word inline-block ${
+                i < words.length - 1 ? "mr-[0.22em]" : ""
+              }`}
+            >
               {word}
-              {i < words.length - 1 && " "}
             </span>
           ))}
         </h1>
@@ -107,22 +140,22 @@ export default function Hero() {
           <div className="avatar-cell row-span-4 flex items-center justify-center max-sm:row-span-1 max-sm:mb-2 max-lg:row-span-1 max-lg:mb-2">
             <Avatar />
           </div>
-          <p className="font-clash-grotesk-regular text-pretty text-base sm:text-lg md:text-2xl leading-relaxed max-sm:text-base max-sm:text-center max-sm:px-2 max-lg:text-base max-lg:text-center max-lg:px-2">
-            {lines.map((line, i) => (
-              <span key={i} className="hero-line block">
+          <p className="font-clash-grotesk-regular text-pretty text-base sm:text-lg md:text-xl leading-relaxed max-sm:text-base max-sm:text-center max-sm:px-2 max-lg:text-base max-lg:text-center max-lg:px-2">
+            {bio[lang].map((line, i) => (
+              <span key={i} className="hero-line block [&:not(:first-child)]:mt-2">
                 {line}
               </span>
             ))}
           </p>
           <div className="tech-stack-cell flex flex-col gap-3">
             <span className="text-xs font-clash-grotesk-semibold uppercase tracking-widest text-neutral-500">
-              Tech Stack
+              {t("hero.techStack")}
             </span>
             <LogoCarousel columnCount={3} logos={techLogos} />
           </div>
-          <div className="github-cell flex flex-col gap-3 max-sm:overflow-hidden max-sm:w-full max-lg:overflow-hidden max-lg:w-full">
+          <div className="github-cell flex w-full min-w-0 flex-col gap-3">
             <span className="text-xs font-clash-grotesk-semibold uppercase tracking-widest text-neutral-500">
-              GitHub Activity
+              {t("hero.githubActivity")}
             </span>
             <GitHubCommits />
           </div>
