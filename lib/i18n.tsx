@@ -41,8 +41,6 @@ const es = {
   "projects.chip3": "Bases de datos",
   "projects.chip4": "MCP",
   "projects.chip5": "Function calling",
-  "projects.andEverything": "y todo lo que hay",
-  "projects.inBetween": "en el medio.",
   "projects.seeMore": "ver más …",
 
   "detail.impact": "Impacto",
@@ -106,8 +104,6 @@ const en: Record<Key, string> = {
   "projects.chip3": "Databases",
   "projects.chip4": "MCP",
   "projects.chip5": "Function calling",
-  "projects.andEverything": "and everything",
-  "projects.inBetween": "in between.",
   "projects.seeMore": "see more …",
 
   "detail.impact": "Impact",
