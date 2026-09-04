@@ -116,10 +116,6 @@ export default function Projects() {
                   </span>
                 ))}
               </h2>
-              <h2 className="font-clash-grotesk-regular">
-                {t("projects.andEverything")} <br />
-                {t("projects.inBetween")}
-              </h2>
             </div>
           </div>
           <div className="col-span-9 grid grid-cols-2 gap-8 content-start p-4 max-sm:col-span-1 max-sm:grid-cols-1 max-sm:gap-4 max-sm:p-0 max-lg:col-span-1 max-lg:grid-cols-1 max-lg:gap-6 max-lg:p-4 max-lg:mx-auto">
