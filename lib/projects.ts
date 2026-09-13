@@ -30,7 +30,12 @@ export function localize(project: Project, lang: Lang): LocalizedProject {
   return { ...rest, ...(lang === "en" ? en : es) };
 }
 
-export const projectSlugs = ["erexit-3d", "afrikisima", "redes-neuronales"];
+export const projectSlugs = [
+  "erexit-3d",
+  "afrikisima",
+  "redes-neuronales",
+  "matematica-discreta",
+];
 
 export const iconSlugs: Record<string, string> = {
   "Node.js": "nodedotjs",
@@ -43,6 +48,9 @@ export const iconSlugs: Record<string, string> = {
   "Tailwind CSS": "tailwindcss",
   HTML5: "html5",
   CSS: "css",
+  Notion: "notion",
+  Markdown: "markdown",
+  JSON: "json",
   Python: "python",
   Git: "git",
   GitHub: "github",

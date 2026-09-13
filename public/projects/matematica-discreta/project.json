@@ -1,0 +1,35 @@
+{
+  "title": "Matemática Discreta",
+  "tags": ["Notion", "Markdown", "JSON"],
+  "stack": ["Notion", "Markdown", "JSON", "Git", "GitHub"],
+  "githubUrl": "https://github.com/juanm4ram/DiscreteMath-LyED-UTN",
+  "previewUrl": "https://matediscreta.notion.site/Matem-tica-Discreta-LyED-189f18ba5937804bbf28ebf4b3972bac",
+  "es": {
+    "subtitle": "Base de conocimiento educativa",
+    "description": "Ejercicios resueltos de Lógica y Estructuras Discretas (UTN FRBA), publicados en Notion y documentados en GitHub.",
+    "overview": "Base de conocimiento abierta de Lógica y Estructuras Discretas (ex Matemática Discreta) de la UTN FRBA: diez unidades de ejercicios resueltos a mano, contrastados con las correcciones del apunte y publicados en Notion. El repositorio de GitHub funciona como puerta de entrada, con el índice de secciones, las capturas de cada unidad y las pautas para que la comunidad proponga correcciones. El material también se prepara como corpus matemático trazable para entrenar y evaluar modelos de IA.",
+    "impact": "Punto de consulta abierto para estudiantes de la materia, con las diez unidades indexadas",
+    "features": [
+      "Diez unidades indexadas, de Lógica a Grafos y Árboles",
+      "Resoluciones paso a paso publicadas en Notion",
+      "Código de colores por estado de avance de cada ejercicio",
+      "Índice legible por máquina en secciones.json",
+      "Correcciones y aportes de la comunidad vía issues",
+      "Propuesta de dataset para entrenamiento y evaluación de IA"
+    ]
+  },
+  "en": {
+    "subtitle": "Educational knowledge base",
+    "description": "Worked solutions for Discrete Mathematics & Logic (UTN FRBA), published on Notion and documented on GitHub.",
+    "overview": "Open knowledge base for Logic and Discrete Structures (formerly Discrete Mathematics) at UTN FRBA: ten units of hand-worked solutions, checked against the coursebook's own answers and published on Notion. The GitHub repository is the entry point, holding the section index, screenshots of every unit and the guidelines for the community to submit corrections. The material is also being shaped into a traceable mathematical corpus for training and evaluating AI models.",
+    "impact": "An open reference for students of the course, with all ten units indexed",
+    "features": [
+      "Ten indexed units, from Logic to Graphs and Trees",
+      "Step-by-step solutions published on Notion",
+      "Color coding for how complete each exercise is",
+      "Machine-readable index in secciones.json",
+      "Community corrections and contributions through issues",
+      "Proposed dataset for AI training and evaluation"
+    ]
+  }
+}
