@@ -2,8 +2,8 @@
   "title": "Redes Neuronales",
   "tags": ["JavaScript", "HTML5", "CSS"],
   "stack": ["JavaScript", "HTML5", "CSS", "Canvas", "MathJax", "GitHub Pages"],
-  "githubUrl": "https://github.com/juanm4ram/tp-pagina-web-analisis",
-  "previewUrl": "https://juanm4ram.github.io/tp-pagina-web-analisis/",
+  "githubUrl": "https://github.com/juanm4ram/neuralNetworks",
+  "previewUrl": "https://juanm4ram.github.io/neuralNetworks/",
   "hasVideo": true,
   "es": {
     "subtitle": "Página web educativa",
@@ -32,3 +32,4 @@
     ]
   }
 }
+
