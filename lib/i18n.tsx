@@ -30,7 +30,6 @@ const es = {
 
   "hero.techStack": "Tech Stack",
   "hero.contact": "Contacto",
-  "contact.cv": "Ver mi CV",
   "contact.email": "Escribime",
   "contact.qrAlt": "Código QR del portafolio: escaneá para abrirlo en tu teléfono",
 
@@ -93,7 +92,6 @@ const en: Record<Key, string> = {
 
   "hero.techStack": "Tech Stack",
   "hero.contact": "Contact",
-  "contact.cv": "View my CV",
   "contact.email": "Email me",
   "contact.qrAlt": "Portfolio QR code: scan it to open the site on your phone",
 

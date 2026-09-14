@@ -45,7 +45,7 @@ const buckets: Bucket[] = [
   {
     key: "tools.languages",
     tools: [
-      { name: "Java", slug: "openjdk" },
+      { name: "Java", img: "/icons/java-logo.svg" },
       { name: "Python", slug: "python" },
       { name: "JavaScript", slug: "javascript" },
       { name: "SQL", Icon: Database },

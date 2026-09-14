@@ -36,7 +36,7 @@ const bio = {
   ],
   en: [
     <>
-      Hi! I&apos;m <strong>Juan Manuel</strong> — a{" "}
+      Hi, I&apos;m <strong>Juan</strong> — a{" "}
       <strong>software developer</strong> focused on <strong>backend</strong>.
     </>,
     <>
@@ -139,7 +139,7 @@ export default function Hero() {
 
       <LiquidGlassCard className="glass-card-wrap w-[85%] mx-auto max-sm:w-[92%] max-lg:w-[92%]">
         <div className="grid grid-cols-[20%_80%] grid-rows-[auto_auto_auto_auto] gap-10 items-start max-w-5xl mx-auto py-10 lg:pt-16 px-2 lg:px-8 max-sm:grid-cols-1 max-sm:gap-6 max-sm:py-8 max-sm:pb-14 max-sm:px-4 max-lg:grid-cols-1 max-lg:gap-6 max-lg:py-8 max-lg:pb-14 max-lg:px-4">
-          <div className="avatar-cell row-span-4 flex items-center justify-center max-sm:row-span-1 max-sm:mb-2 max-lg:row-span-1 max-lg:mb-2">
+          <div className="avatar-cell row-span-4 self-stretch flex items-center justify-center max-sm:row-span-1 max-sm:mb-2 max-lg:row-span-1 max-lg:mb-2">
             <Avatar />
           </div>
           <p className="font-clash-grotesk-regular text-pretty text-base sm:text-lg md:text-xl leading-relaxed max-sm:text-base max-sm:text-center max-sm:px-2 max-lg:text-base max-lg:text-center max-lg:px-2">

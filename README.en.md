@@ -241,9 +241,12 @@ This is a standard Next.js app and needs no environment variables.
 
 ## Credits and licence
 
-The base design comes from [portfolio-2026](https://github.com/yass-gr/portfolio-2026)
-by Yassine Grairi. The content, projects, tools section, bilingual system and imagery
-are my own.
+This portfolio is based on and adapted from
+[portfolio-2026](https://github.com/yass-gr/portfolio-2026) by Yassine Grairi,
+distributed under the MIT License. The original copyright notice and licence
+text are preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+The content, projects, tools section, bilingual system and imagery are my own.
 
 The Panchang, Clash Grotesk and Expose typefaces are by
 [Indian Type Foundry / Fontshare](https://www.fontshare.com/) and used under their licence.

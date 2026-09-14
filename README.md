@@ -241,9 +241,13 @@ El proyecto es una app de Next.js estándar y no necesita variables de entorno.
 
 ## Créditos y licencia
 
-El diseño base proviene de [portfolio-2026](https://github.com/yass-gr/portfolio-2026),
-de Yassine Grairi. El contenido, los proyectos, la sección de herramientas, el sistema
-bilingüe y las imágenes son propios.
+Este portafolio está basado y adaptado a partir de
+[portfolio-2026](https://github.com/yass-gr/portfolio-2026), de Yassine Grairi,
+distribuido bajo licencia MIT. El aviso de copyright y el texto de la licencia
+original se conservan en [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+El contenido, los proyectos, la sección de herramientas, el sistema bilingüe y
+las imágenes son propios.
 
 Las fuentes Panchang, Clash Grotesk y Expose son de
 [Indian Type Foundry / Fontshare](https://www.fontshare.com/) y se usan bajo su licencia.
