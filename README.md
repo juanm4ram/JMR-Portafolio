@@ -2,7 +2,7 @@
 
 **Español** · [English](README.en.md)
 
-Portafolio personal de **Juan Manuel Ramos**, software developer orientado a backend.
+Mi portafolio! 
 Sitio de una sola página, bilingüe (español / inglés), con modo claro y oscuro.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)
