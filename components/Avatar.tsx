@@ -8,7 +8,7 @@ export default function Avatar() {
         alt="Juan Manuel Ramos"
         fill
         priority
-        className="object-cover scale-[1.14] translate-y-[5%]"
+        className="object-cover"
         sizes="280px"
       />
     </div>
