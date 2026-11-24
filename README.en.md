@@ -2,7 +2,7 @@
 
 [Español](README.md) · **English**
 
-Personal portfolio of **Juan Manuel Ramos**, a backend-focused software developer.
+Personal portfolio of **Juan Manuel Ramos**, a full-stack software developer.
 A single-page site, bilingual (Spanish / English), with light and dark modes.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)](https://nextjs.org/)

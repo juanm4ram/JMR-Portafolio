@@ -16,42 +16,43 @@ const bio = {
   es: [
     <>
       Hola! me llamo <strong>Juan Manuel</strong> — soy{" "}
-      <strong>software developer</strong> orientado a <strong>backend</strong>.
+      <strong>software developer full-stack</strong>.
     </>,
     <>
-      Trabajo con <strong>Node.js</strong>, <strong>Java</strong>,{" "}
-      <strong>Python</strong> y <strong>SQL</strong>; <strong>APIs REST</strong>,{" "}
-      <strong>Model Context Protocol (MCP)</strong>, function calling,{" "}
-      <strong>RAG</strong> y bases de datos vectoriales.
+      Trabajo con <strong>TypeScript</strong>, <strong>Node.js</strong>,{" "}
+      <strong>Python</strong> y <strong>PostgreSQL</strong>;{" "}
+      <strong>APIs REST</strong>, <strong>Model Context Protocol (MCP)</strong>,
+      function calling y <strong>RAG</strong>.
+    </>,
+    <>
+      Tengo experiencia desarrollando <strong>sistemas para PyMEs</strong>, y
+      profundizo en <strong>LangGraph</strong>, <strong>AI Engineering</strong> y
+      arquitecturas orientadas a soluciones empresariales.
     </>,
     <>
       Estudio la <strong>Licenciatura en Informática</strong> en{" "}
       <strong>Universidad de Palermo</strong>.
     </>,
-    <>
-      Me apasiona estudiar el funcionamiento de los algoritmos de IA, cómo se
-      construyen los agentes y cómo desarrollar software de calidad mediante
-      ambos.
-    </>,
   ],
   en: [
     <>
       Hi, I&apos;m <strong>Juan</strong> — a{" "}
-      <strong>software developer</strong> focused on <strong>backend</strong>.
+      <strong>full-stack software developer</strong>.
     </>,
     <>
-      I work with <strong>Node.js</strong>, <strong>Java</strong>,{" "}
-      <strong>Python</strong> and <strong>SQL</strong>; <strong>REST APIs</strong>,{" "}
-      <strong>Model Context Protocol (MCP)</strong>, function calling,{" "}
-      <strong>RAG</strong> and vector databases.
+      I work with <strong>TypeScript</strong>, <strong>Node.js</strong>,{" "}
+      <strong>Python</strong> and <strong>PostgreSQL</strong>;{" "}
+      <strong>REST APIs</strong>, <strong>Model Context Protocol (MCP)</strong>,
+      function calling and <strong>RAG</strong>.
+    </>,
+    <>
+      I build <strong>systems for small and medium businesses</strong>, and I&apos;m
+      going deeper into <strong>LangGraph</strong>, <strong>AI Engineering</strong>{" "}
+      and architectures for enterprise software.
     </>,
     <>
       I’m studying a <strong>BSc in Computer Science</strong> at{" "}
       <strong>Universidad de Palermo</strong>.
-    </>,
-    <>
-      I&apos;m fascinated by how AI algorithms work, how agents are built, and
-      how to write quality software with both.
     </>,
   ],
 };

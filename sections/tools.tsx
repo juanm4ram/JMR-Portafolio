@@ -47,6 +47,7 @@ const buckets: Bucket[] = [
     tools: [
       { name: "Java", img: "/icons/java-logo.svg" },
       { name: "Python", slug: "python" },
+      { name: "TypeScript", slug: "typescript" },
       { name: "JavaScript", slug: "javascript" },
       { name: "SQL", Icon: Database },
       { name: "C", slug: "c" },
@@ -66,6 +67,7 @@ const buckets: Bucket[] = [
   {
     key: "tools.data",
     tools: [
+      { name: "PostgreSQL", slug: "postgresql" },
       { name: "SQL Server", Icon: Database },
       { name: "Firestore", slug: "firebase" },
       { name: "Microsoft Excel", Icon: Table2 },

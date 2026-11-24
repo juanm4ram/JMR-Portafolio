@@ -35,11 +35,11 @@ const es = {
 
   "projects.title": "Projects",
   "projects.iWorkOn": "trabajo en",
-  "projects.chip1": "Backend",
+  "projects.chip1": "Full-Stack",
   "projects.chip2": "APIs REST",
   "projects.chip3": "Bases de datos",
   "projects.chip4": "MCP",
-  "projects.chip5": "Function calling",
+  "projects.chip5": "AI Engineering",
   "projects.seeMore": "ver más …",
 
   "detail.impact": "Impacto",
@@ -97,11 +97,11 @@ const en: Record<Key, string> = {
 
   "projects.title": "Projects",
   "projects.iWorkOn": "i work on",
-  "projects.chip1": "Backend",
+  "projects.chip1": "Full-Stack",
   "projects.chip2": "REST APIs",
   "projects.chip3": "Databases",
   "projects.chip4": "MCP",
-  "projects.chip5": "Function calling",
+  "projects.chip5": "AI Engineering",
   "projects.seeMore": "see more …",
 
   "detail.impact": "Impact",

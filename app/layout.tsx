@@ -21,9 +21,9 @@ import { LanguageProvider } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Juan Manuel Ramos — Software Developer",
+  title: "Juan Manuel Ramos — Full-Stack Developer",
   description:
-    "Portafolio de Juan Manuel Ramos, software developer orientado a backend: automatización, bots de Telegram e integración de APIs.",
+    "Portafolio de Juan Manuel Ramos, software developer full-stack: TypeScript, Node.js, PostgreSQL y Python; sistemas para PyMEs, APIs REST y AI Engineering.",
   icons: {
     icon: "/favicon.png",
     apple: "/apple-icon.png",
